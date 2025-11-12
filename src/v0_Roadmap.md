@@ -1,16 +1,16 @@
 package v0_Roadmap;
 
-# ☕ Java 8 Features Roadmap
+## ☕ Java 8 Features Roadmap
 
 ---
 
-        ## 1️⃣ Interface Enhancements
+### 1️⃣ Interface Enhancements
 - 1.1 Default Methods  
 - 1.2 Static Methods  
 
 ---
 
-        ## 2️⃣ Functional Interfaces
+### 2️⃣ Functional Interfaces
 - 2.1 Predicate  
 - 2.2 Consumer  
 - 2.3 Supplier  
@@ -18,32 +18,32 @@ package v0_Roadmap;
 
 ---
 
-        ## 3️⃣ Lambda Expressions
+### 3️⃣ Lambda Expressions
 
 ---
 
-        ## 4️⃣ Method & Constructor References
+### 4️⃣ Method & Constructor References
 
 ---
 
-        ## 5️⃣ Stream API
+### 5️⃣ Stream API
 
 ---
 
-        ## 6️⃣ Optional Class  
+### 6️⃣ Optional Class  
 *(To handle null values safely and avoid NullPointerException)*
 
         ---
 
-        ## 7️⃣ Spliterator
+### 7️⃣ Spliterator
 
 ---
 
-        ## 8️⃣ StringJoiner
+### 8️⃣ StringJoiner
 
 ---
 
-        ## 9️⃣ Collections Framework Enhancements
+### 9️⃣ Collections Framework Enhancements
 - forEach()  
 - removeIf()  
 - replaceAll()  
@@ -52,5 +52,5 @@ package v0_Roadmap;
 
 ---
 
-        ✅ **Java 8 Key Theme:**
+✅ **Java 8 Key Theme:**
 Functional Programming + Stream-based Data Processing + Safer, Cleaner APIs
