@@ -36,7 +36,58 @@ This makes code more **concise, readable, and reusable** — especially useful w
 
 ---
 
-### What is Lambda ?
+## 🧩 What is a Functional Interface?
+
+Functional Interfaces are used to invoke **lambda expressions.**
+
+The `interface` which **contains only one `abstract` method** is called as **Functional Interface**
+    
+`Runnable`-----> run() method
+
+`Callable`-----> call() method
+
+`Comparable`--> compareTo() method
+
+-> To represent one Interface as functional interface we will use `@FunctionalInterface` annotation
+
+```java
+@FunctionalInterface
+public interface MyInterface {
+   void m1();
+}
+
+```
+
+> `NOTE:` When we write *`@FunctionalInterface`* then our compiler will check interface contains only one abstract method or not.
+
+---
+
+### Example 1 — Simple Functional Interface
+
+```java
+@FunctionalInterface // optional but recommended annotation
+interface Greeting {
+    void sayHello();// only one abstract method
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Using lambda to implement the functional interface
+        Greeting g = () -> System.out.println("Hello, World!");
+        g.sayHello();
+    }
+}
+```
+
+## 🔑 Key Points
+- Must have exactly one abstract method.
+- Can have any number of default or static methods.
+- Annotated with @FunctionalInterface (optional but helps the compiler ensure correctness).
+- Used as the target type for lambda expressions.
+
+---
+
+### What is Lambda?
 
 A **Lambda Expression** is basically an **anonymous function**, meaning a function **without a name**.
 
@@ -91,6 +142,8 @@ public class Main {
 
 ---
 
+
+---
 ## 🧠 Lambda Expression Practice Tasks (Beginner Level)
 
 ---
@@ -106,7 +159,7 @@ public class Main {
 3. Print `"Hello Lambda!"` from both.
 
 💡 *Hint:*  
-```java
+```
 Sayable s = () -> System.out.println("Hello Lambda!");
 s.say();
 ```
@@ -125,7 +178,7 @@ s.say();
 
 💡 *Expected Output:*
 
-```java
+```
 Sum is: 30
 ```
 
@@ -159,7 +212,7 @@ Sum is: 30
 
 💡 *Expected Output:*
 
-```java
+```
 Number is even
 ```
 ---
@@ -172,11 +225,10 @@ Number is even
 
 1. Create a List<String> of names.
 2. Use forEach() with lambda to print each name in uppercase.
-3. 
 
 💡 *Expected Output:*
 
-```java
+```
 Vamshi
 Amol
 Amith
@@ -195,7 +247,7 @@ Amith
 
 💡 *Hint:*
 
-```java
+```
 Collections.sort(list, (a, b) -> b - a);
 ```
 ---
@@ -228,4 +280,5 @@ Multiplication: 50
 - `Predicate`, `Consumer`, `Function` (Java built-in functional interfaces)
 - `Stream` API (`filter()`, `map()`, `forEach()`)
 
+---
 
