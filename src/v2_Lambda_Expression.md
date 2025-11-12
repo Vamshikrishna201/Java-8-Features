@@ -177,9 +177,9 @@ Number is even
 💡 *Expected Output:*
 
 ```java
-ALEX
-BRIAN
-CHARLIE
+Vamshi
+Amol
+Amith
 ```
 ---
 
