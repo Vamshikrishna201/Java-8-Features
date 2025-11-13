@@ -296,6 +296,8 @@ Multiplication: 50
 - It is predefined Functional interface.
 - It is used check condition and returns true or false value.
 - Predicate interface having only one abstract method that is `boolean test(T t);`
+- Use a Predicate in Java when you need to test a condition on an object and return 
+a boolean result (e.g., filtering or validation logic).
 
 `Example:-`
 ```java
