@@ -1,16 +1,15 @@
 # Lambda Expressions
----
 
 ---
 
-### 📘 Introduction
+### Introduction
 - **Introduced in Java 8 (1.8v)**
 - Traditionally, Java is an **Object-Oriented Programming (OOP)** language, everything is represented using **classes and objects**.
 - From **Java 8**, Java also supports **Functional Programming** features.
 
 ---
 
-### 🧩 Object-Oriented vs Functional Programming
+### Object-Oriented vs Functional Programming
 
 | Concept | Object-Oriented Programming (OOP) | Functional Programming (FP) |
 |----------|----------------------------------|------------------------------|
@@ -21,7 +20,7 @@
 
 ---
 
-### 🧠 What is Functional Programming?
+### What is Functional Programming?
 
 Functional programming means representing behavior using **functions** rather than classes or objects.
 
@@ -36,7 +35,7 @@ This makes code more **concise, readable, and reusable** — especially useful w
 
 ---
 
-## 🧩 What is a Functional Interface?
+### What is a Functional Interface?
 
 Functional Interfaces are used to invoke **lambda expressions.**
 
@@ -99,9 +98,15 @@ A **Lambda Expression** is basically an **anonymous function**, meaning a functi
 In simple terms:
 > A **Lambda Expression** is a short way to write a function that can be passed around as data.
 
+**Example:-** *Syntax Template*
+```
+(parameter_list) -> {  
+    // body  
+}
+```
 ---
 
-## 💡 Lambda Expression Example
+### 💡 Lambda Expression Example
 
 ### Before Java 8 (Normal Function)
 ```java
@@ -267,13 +272,64 @@ Collections.sort(list, (a, b) -> b - a);
 
 💡 *Expected Output:*
 
-```java
+```
 Addition: 15  
 Subtraction: 5  
 Multiplication: 50
 ```
 ---
 
+### ⚙️ Common Built-in Functional Interfaces
+
+-> In java 8 several predefined Functional interfaces got introduces they are:
+
+| Interface | Package | Method | Purpose |
+|------------|----------|---------|----------|
+| Predicate<T> | java.util.function | test(T t) | Returns boolean |
+| Function<T,R> | java.util.function | apply(T t) | Returns result |
+| Consumer<T> | java.util.function | accept(T t) | Performs action |
+| Supplier<T> | java.util.function | get() | Supplies value |
+
+-> The above interfaces are provided in java.util.function package
+
+**1) Predicate:-**
+- It is predefined Functional interface.
+- It is used check condition and returns true or false value.
+- Predicate interface having only one abstract method that is `boolean test(T t);`
+
+`Example:-`
+```java
+public class PredicateDemo {
+//      without Predicate
+//    public boolean test(int i ) {
+//        if(i > 10){
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }    
+    public static void main(String[] args) {
+//      With Predicate
+        Predicate<Integer> p = i -> i > 10;
+        p.test(5);//false
+        p.test(15);//true
+    }
+}
+```
+**Task:** Declare names in an array and print names which are starting with 'A' using lambda expression.
+
+*Example like this:* `String names = {"Krishna", "Arjun", "Rushi", "Amith", "Sunny"};`
+
+---
+
+## ⚠️ ❌ Common Mistakes 
+- Using lambda without a functional interface.
+- defububg nire than one abstract method in a functional interface.
+- Expecting `this` to refer to the lambda itself (it refers to the outer class).
+- Trying to overload lambda signatures incorrectly.
+- Forgetting type interface rules (sometimes need explicit parameter types).
+
+---
 ## Bonus Task — Real-World Practice
 **Use lambda expressions with:**
 - `Runnable` interface (for threads)
