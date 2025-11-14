@@ -10,7 +10,7 @@ interface Even {
 // 1. Create an interface CheckEven with method isEven(int n).
 // 2. Use lambda to check whether n is even or odd.
 // 3. Print the result.
-public class v3_Functional_Interfaces {
+public class v3_Lambda_Expression {
     public static void main(String[] args) {
         //input + finding v2_FunctionalProgramming_Lambda_Ex.Even numbers, if-else
         Scanner sc = new Scanner(System.in);
