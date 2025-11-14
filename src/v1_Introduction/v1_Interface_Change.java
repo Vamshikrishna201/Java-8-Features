@@ -1,3 +1,5 @@
+package v1_Introduction;
+
 // Interface Example Demonstrating Abstract and Default Methods (Java 8+)
 interface Vehicle {
 
@@ -15,14 +17,14 @@ interface Vehicle {
     }
 }
 
-// Class implementing the Vehicle interface
+// Class implementing the v1_Introduction.Vehicle interface
 class Car implements Vehicle {
 
     //  Mandatory implementation of abstract method
     // - 'start()' is abstract in the interface, so it MUST be implemented here.
     @Override
     public void start() {
-        System.out.println("Car started...");
+        System.out.println("v1_Introduction.Car started...");
     }
 
     //  Optional override of default method
@@ -30,7 +32,7 @@ class Car implements Vehicle {
     //   our class-specific logic runs instead of the default version.
     @Override
     public void clean() {
-        System.out.println("Car cleaning completed...");
+        System.out.println("v1_Introduction.Car cleaning completed...");
     }
 }
 
@@ -42,11 +44,11 @@ public class v1_Interface_Change {
         Car c = new Car();
 
         //  Calling overridden default method
-        // - Since Car overrides 'clean()', this version executes.
-        c.clean(); // Output → Car cleaning completed...
+        // - Since v1_Introduction.Car overrides 'clean()', this version executes.
+        c.clean(); // Output → v1_Introduction.Car cleaning completed...
 
         //  Calling implemented abstract method
-        // - This method was required to be implemented by Car.
-        c.start(); // Output → Car started...
+        // - This method was required to be implemented by v1_Introduction.Car.
+        c.start(); // Output → v1_Introduction.Car started...
     }
 }
