@@ -1,3 +1,4 @@
+package v2_FunctionalProgramming_Lambda_Ex;
 
 // Functional interface – contains only one abstract method
 interface Calc {
@@ -10,7 +11,7 @@ class Addition implements Calc {
     public void calculate(int a, int b) {
         // Without parentheses -> 2 + 4 = 24 (wrong)
         // With parentheses -> correct arithmetic
-        System.out.println("Addition: " + a + " + " + b + " = " + (a + b));
+        System.out.println("v2_FunctionalProgramming_Lambda_Ex.Addition: " + a + " + " + b + " = " + (a + b));
     }
 }
 //and also u can create several classes like
@@ -23,7 +24,7 @@ public class v2_Lambda_Expression {
 
         // 2. Lambda Expression (Java 8+)
         // We don’t need a separate class; we just provide the behavior directly.
-        Calc c2 = (a, b) -> System.out.println("Addition: " + a + " + " + b + " = " + (a + b));
+        Calc c2 = (a, b) -> System.out.println("v2_FunctionalProgramming_Lambda_Ex.Addition: " + a + " + " + b + " = " + (a + b));
         Calc c3 = (a,  b) -> System.out.println("Multiplication: " + a + " x " + b + " = " + (a * b));
         Calc c4 = (a,  b) -> System.out.println("Devision: " + a + " / " + b + " = " + (a / b));
         c2.calculate(2, 4); // Call lambda implementation
