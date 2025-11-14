@@ -25,7 +25,7 @@ interface Vehicle {
     void startVehicle();  // abstract method
 }
 
-class Car implements Vehicle {
+class Car implements v1_Introduction.Vehicle {
     public void startVehicle() {
         // logic to start car
     }
@@ -41,7 +41,7 @@ class Bus implements Vehicle {
 
 > **Important**
 >
-> If a new method is added to the Vehicle interface, all classes(Car,But etc.) that implement this interface must also implement the new method
+> If a new method is added to the v1_Introduction.Vehicle interface, all classes(v1_Introduction.Car,But etc.) that implement this interface must also implement the new method
 >
 > Otherwise, they will fail to compile.
 
@@ -83,14 +83,14 @@ interface Vehicle {
 
 class Car implements Vehicle {
     public void start() {
-        System.out.println("Car started...");
+        System.out.println("v1_Introduction.Car started...");
     }
 }
 
 public class V1_Interface_Change {
     public static void main(String[] args) {
-        Car c = new Car();
-        c.start();   // calls Car's implementation
+        v1_Introduction.Car c = new v1_Introduction.Car();
+        c.start();   // calls v1_Introduction.Car's implementation
         c.clean();   // calls default method from interface
     }
 }
@@ -122,23 +122,23 @@ interface Vehicle {
     }
 
     static void service() {  // static method
-        System.out.println("Vehicle servicing...");
+        System.out.println("v1_Introduction.Vehicle servicing...");
     }
 }
 
 class Car implements Vehicle {
     public void start() {
-        System.out.println("Car started...");
+        System.out.println("v1_Introduction.Car started...");
     }
 }
 
 public class V2_Interface_Static {
     public static void main(String[] args) {
-        Car c = new Car();
-        c.start();    // calls Car's implementation
+        v1_Introduction.Car c = new v1_Introduction.Car();
+        c.start();    // calls v1_Introduction.Car's implementation
         c.clean();    // calls default method from interface
 
-        Vehicle.service();  // calls static method using interface name
+        v1_Introduction.Vehicle.service();  // calls static method using interface name
     }
 }
 ```
@@ -148,6 +148,6 @@ public class V2_Interface_Static {
 ### Static Methods in Interfaces
 
 - **Not inherited** by implementing classes.  
-- Must be called using the **interface name**, e.g.: `Vehicle.service();`
+- Must be called using the **interface name**, e.g.: `v1_Introduction.Vehicle.service();`
 - Are mainly used for utility or helper methods related to the interface.
 - They help organize related static functionality inside the interface itself, rather than in separate utility classes.
