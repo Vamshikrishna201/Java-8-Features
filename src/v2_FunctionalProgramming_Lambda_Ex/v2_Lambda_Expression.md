@@ -1,4 +1,4 @@
-# Lambda Expressions
+# Functional Programming
 
 ---
 
@@ -61,23 +61,6 @@ public interface MyInterface {
 
 ---
 
-### Example 1 — Simple Functional Interface
-
-```java
-@FunctionalInterface // optional but recommended annotation
-interface Greeting {
-    void sayHello();// only one abstract method
-}
-
-public class Main {
-    public static void main(String[] args) {
-        // Using lambda to implement the functional interface
-        Greeting g = () -> System.out.println("Hello, World!");
-        g.sayHello();
-    }
-}
-```
-
 ## 🔑 Key Points
 - Must have exactly one abstract method.
 - Can have any number of default or static methods.
@@ -111,39 +94,140 @@ In simple terms:
 ### Before Java 8 (Normal Function)
 ```java
 // Functional interface — only one abstract method
-interface Greeting {
-    void sayHello();
-}
-
-class Hello implements Greeting {
-    public void sayHello() {
-        System.out.println("Hello, World!");
+class MyThread implements Runnable{
+    @Override
+   public void run(){
+       System.out.println("I am Runnable");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Greeting g = new Hello();  // create object of class
-        g.sayHello();              // call the method
+        Runnable r = new MyThread();
+        Thread t = new Thread(r);
+        t.start();
     }
 }
 ```
 ### ⚡ After Java 8 (Using Lambda Expression)
 
 ```java
-interface Greeting {
-   void sayHello();
-}
-
 public class Main {
     public static void main(String[] args) {
         // Lambda replaces the need for a separate class
-        Greeting g = () -> System.out.println("Hello, World!");
-        g.sayHello();  // directly calls lambda implementation
+        Runnable r = () -> System.out.println("I am Runnable");
+        Thread t = new Thread(r);
+        t.start();  // directly calls lambda implementation
     }
 }
 ```
-> `NOTE:-` When we have single line in body then curly braces `{}` are optional.
+> **NOTE:-** When we have single line in body then curly braces `{}` are optional.
+
+---
+
+# 👀 Lambda Examples for Functional Interfaces
+
+## 1. Lambda for a void Method With No Parameters
+**Example Interface**
+```java
+@FunctionalInterface
+interface Task {
+    void execute(); //abstract method
+}
+```
+**Lambda Example**
+```java
+Task t = () -> System.out.println("Task executed");
+t.execute();
+```
+**Explanation**
+- Empty parentheses `()` mean no parameters
+- Still no return value
+---
+## 2. Lambda for a Method That Returns void
+If the abstract method returns nothing, the lambda also returns nothing.
+**Example Interface**
+```java
+@FunctionalInterface
+interface Printer {
+    void print(String message); //abstract method
+}
+```
+**Lambda Example**
+```java
+Printer p = (msg) -> System.out.println(msg);
+p.print("Hello!");
+```
+**Explanation**
+- Parameters go inside `()`
+- No `return` because method returns `void`
+---
+
+## 3. Lambda for a Method That Returns a Value
+If the method returns something (like int), the lambda must return a value.
+**Example Interface**
+```java
+@FunctionalInterface
+interface Adder {
+    int add(int a, int b);
+}
+```
+**Lambda Example**
+```java
+//Examples
+Adder a = (int a, int b) -> x + y; //allowed ☑️
+
+Adder a = (x, y) -> x + y; //allowed ☑️
+
+Adder a = (a, b) -> a + b; //allowed ☑️
+
+Adder a = (int a, b) -> a + b; //not allowed ❌ 
+
+Adder a = (a, int b) -> a + b; //not allowed ❌
+
+Adder a = (x, y) -> System.out.println(x + y); // NOT allowed ❌
+
+System.out.println(a.add(5, 3));  // Output: 8
+```
+**Explanation**
+- Return type is int, so lambda returns x + y
+- No return keyword needed if it’s a single expression
+- It’s not allowed because `System.out.println()` returns void, but the `Adder` interface requires the lambda to return an `int`.
+- Since the lambda doesn’t return a value, it doesn’t match the method’s return type.
+
+---
+## 4. Multi-Statement Lambda (Requires `{}` and return)
+**Example Interface**
+```java
+@FunctionalInterface
+interface Calculator {
+    int calculate(int x, int y);
+}
+```
+**Lambda Example**
+```java
+Calculator c = (x, y) -> {
+    int result = x * y;
+    System.out.println("Calculating...");
+    return result;  // required when using { }
+};
+```
+**Explanation:**
+- Parameter goes inside `()`
+- No `{ }` because there’s only one statement
+- No `return` because the `method returns void`
+
+## Rules:-
+
+- The number of arguments and type of the arguments should match with the parameters of the abstract method in the functional interface.
+
+- The body of the lambda expression should return a value that must mathc with the return type of the abstract method.
+
+- If there are zero or more then one arguments then paranthesis is mandatory. if there is a single argument then paranthesis is optional.
+
+- If the body has multiple statements then curly braces `{}`are mandatory, and for a single statement, the curly braces `{}` are optional.
+
+- The datatype of the arguments is also optional. But don't specify the datatype for one argument and not for another argument.
 
 ---
 
@@ -265,7 +349,7 @@ Collections.sort(list, (a, b) -> b - a);
 
 1. Create your own interface Operation with a method perform(int a, int b).
 2. Implement multiple lambdas for:
-    - Addition
+    - v2_FunctionalProgramming_Lambda_Ex.Addition
     - Subtraction
     - Multiplication
 3. Call each and print results.
@@ -273,55 +357,10 @@ Collections.sort(list, (a, b) -> b - a);
 💡 *Expected Output:*
 
 ```
-Addition: 15  
+v2_FunctionalProgramming_Lambda_Ex.Addition: 15  
 Subtraction: 5  
 Multiplication: 50
 ```
----
-
-### ⚙️ Common Built-in Functional Interfaces
-
--> In java 8 several predefined Functional interfaces got introduces they are:
-
-| Interface | Package | Method | Purpose |
-|------------|----------|---------|----------|
-| Predicate<T> | java.util.function | test(T t) | Returns boolean |
-| Function<T,R> | java.util.function | apply(T t) | Returns result |
-| Consumer<T> | java.util.function | accept(T t) | Performs action |
-| Supplier<T> | java.util.function | get() | Supplies value |
-
--> The above interfaces are provided in java.util.function package
-
-**1) Predicate:-**
-- It is predefined Functional interface.
-- It is used check condition and returns true or false value.
-- Predicate interface having only one abstract method that is `boolean test(T t);`
-- Use a Predicate in Java when you need to test a condition on an object and return 
-a boolean result (e.g., filtering or validation logic).
-
-`Example:-`
-```java
-public class PredicateDemo {
-//      without Predicate
-//    public boolean test(int i ) {
-//        if(i > 10){
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }    
-    public static void main(String[] args) {
-//      With Predicate
-        Predicate<Integer> p = i -> i > 10;
-        p.test(5);//false
-        p.test(15);//true
-    }
-}
-```
-**Task:** Declare names in an array and print names which are starting with 'A' using lambda expression.
-
-*Example like this:* `String names = {"Krishna", "Arjun", "Rushi", "Amith", "Sunny"};`
-
 ---
 
 ## ⚠️ ❌ Common Mistakes 
