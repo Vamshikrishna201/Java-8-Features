@@ -11,8 +11,8 @@ Use to check condiation on an object and return a boolean result
 public class e1_Predicate {
 
     public static void main(String[] args) {
-        //simple example:
-        Predicate<Integer> salary = x -> x > 50000; // its like an if(x > 50000)
+        //simple example-1:
+        Predicate<Integer> salary = x -> x > 50000; // it's like an if(x > 50000)
         System.out.println(salary.test(60000));
 
 
