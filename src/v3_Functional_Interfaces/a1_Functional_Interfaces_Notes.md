@@ -2,21 +2,20 @@
 
 -> In java 8 several predefined Functional interfaces got introduces they are:
 
-| Interface | Package | Method | Purpose |
-|------------|----------|---------|----------|
-| Predicate<T> | java.util.function | test(T t) | Returns boolean |
-| Function<T,R> | java.util.function | apply(T t) | Returns result |
-| Consumer<T> | java.util.function | accept(T t) | Performs action |
-| Supplier<T> | java.util.function | get() | Supplies value |
+| Interface           | Package                 | Method                  | Purpose                   |
+|---------------------|-------------------------|-------------------------|---------------------------|
+| `Predicate<T>`      | `java.util.function`    | `boolean test(T t)`     | Returns boolean           |
+| `Function<T,R>`     | `java.util.function`    | `R apply(T t)`          | Returns a transformed value |
+| `Consumer<T>`       | `java.util.function`    | `void accept(T t)`      | Performs an action (no return) |
+| `Supplier<T>`       | `java.util.function`    | `T get()`               | Supplies a value (no input) |
 
--> The above interfaces are provided in java.util.function package
+-> These interfaces are in the `java.util.function` package.
 
 **1) Predicate:-**
 - It is predefined Functional interface.
-- It is used check condition and returns true or false value.
+- It is used check condition and returns `boolean` value.
 - Predicate interface having only one abstract method that is `boolean test(T t);`
-- Use a Predicate in Java when you need to test a condition on an object and return
-  a boolean result (e.g., filtering or validation logic).
+- Use when you need true/false checks (filtering, validation).
 
 *Example:-*
 ```java
@@ -41,7 +40,7 @@ public class PredicateDemo {
 
 *Example like this:* `String names = {"Krishna", "Arjun", "Varun", "Amith", "Sunny"};`
 
-**Predicate Joining-**
+### **Predicate Joining-**
 
 - To Combine multiple predicates, we will use predicate joining
 - In Predicate we have below methods
@@ -83,8 +82,6 @@ public class Demo {
 }
 ```
 **1.1) BiPredicate interface**
-
-- The `Predicate<T>` takes only one parameter and returns the result.
 
 Now suppose we have requirement where wer need to send two parameters (i.e, Person object and min age to vote) and then return the result. Here, we can use `BiPredicate<T, T>.`
 
@@ -144,8 +141,9 @@ public class Demo {
 **3) Consumer:-**
 
 - Consumer is a pre-defined functional interface
-- It contains one abstract method i.e accept(T t)
+- It contains one abstract method: `void accept(T t)`.
 - Consumer will accept input but it won't return anything
+- Commonly used with `forEach`.
 
 *Note:* in java 8 `forEach()` method got introduced `forEach(Consumer consumer)` method will take Consumer as parameter.
 
@@ -185,12 +183,12 @@ public class Demo{
 
 ---
 
-**4) Function:-**
+**4) Function<T, R>:-**
 
 - Function is pre-defined functional interface.
 - That takes an object of type T and return an Object of type R.
 - It takes input and it returns output.
--  It is having one abstract method that is `apply ()`
+- It is having one abstract method that is `R apply(T t)`.
 
 *Example:*
 ```java
@@ -221,8 +219,9 @@ public class Demo{
 
 **4.1) BiFunction<T,U,R>**
 
-The `BiFunction<T, U, R>` is similar to Function<T, R> interface; the only difference is that the
-BiFunction interface take in two parameter and returns and output.
+The `BiFunction<T, U, R>` is similar to `Function<T, R>` interface;
+the only difference is that the
+`BiFunction<T,U,R>` interface take in two parameter and returns and output.
 
 In the below example, we will create a BiFunction that takes two numbers as input and 
 return their sum.
