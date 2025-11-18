@@ -61,7 +61,6 @@ public class MethodRef{
     }
 }
 ```
-
 ---
 
 **2) Reference to an Instance Method of a Particular Object**
