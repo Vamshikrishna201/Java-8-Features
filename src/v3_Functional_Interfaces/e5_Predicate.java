@@ -4,7 +4,7 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 
-//BiPredicate Example
+// BiPredicate Example
 public class e5_Predicate {
     public static void main(String[] args) {
         Predicate<Integer> p = i -> i > 10;
