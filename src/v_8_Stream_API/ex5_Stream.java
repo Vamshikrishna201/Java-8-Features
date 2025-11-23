@@ -12,6 +12,10 @@ class Employee{
         this.salary = salary;
         this.age = age;
     }
+
+    double getSalary(double salary){
+        return salary;
+    }
 }
 
 //Task:- get emp name & age whose salary is >= 50,000 using Stream API.
